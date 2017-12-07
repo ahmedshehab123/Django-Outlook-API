@@ -1,0 +1,20 @@
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE.txt in the project root for license information. -->
+{% extends "outlook/layout.html" %}
+{% block content %}
+<h1>Your Email</h1>
+<table class="table">
+  <tr>
+    <th>From</th>
+    <th>Subject</th>
+    <th>Received</th>
+  </tr>
+  
+  {% for message in messages %}
+    <tr>
+      <td>{{ message.from.emailAddress.name }}</td>
+      <td>{{ message.subject }}</td>
+      <td>{{ message.receivedDateTime }}</td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}
